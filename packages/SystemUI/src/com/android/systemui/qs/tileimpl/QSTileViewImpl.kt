@@ -214,7 +214,6 @@ open class QSTileViewImpl @JvmOverloads constructor(
 
     private val locInScreen = IntArray(2)
     private var vertical = false
-    private val forceHideCheveron = true
     private var labelHide = false
     private var labelSize = 14f
 
@@ -767,7 +766,7 @@ open class QSTileViewImpl @JvmOverloads constructor(
             customDrawableView.setImageDrawable(state.sideViewCustomDrawable)
             customDrawableView.visibility = VISIBLE
             chevronView.visibility = GONE
-        } else if ((state !is BooleanState || state.forceExpandIcon) && !forceHideCheveron) {
+        } else if (state !is BooleanState || state.forceExpandIcon) {
             customDrawableView.setImageDrawable(null)
             customDrawableView.visibility = GONE
             chevronView.visibility = VISIBLE
